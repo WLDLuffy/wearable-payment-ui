@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">MastercardWearablePaymentApp</string>
+    <string name="header_text">Foundry</string>
+    <string name="mastercard_title">"Mastercard\n\nPayment Wearable</string>
+    <string name="experience">Experience</string>
+    <string name="event_details">1 May 2025, Mastercard Experience Center.</string>
+    <string name="address_one">Duo Tower, Singapore.</string>
+    <string name="carousel_one_title">Pay and unlock in style</string>
+    <string name="carousel_one_description">The wearable uses tokenization to ensure hassle-free and secure payments, making your daily transactions smoother and more convenient.</string>
+    <string name="carousel_two_title">Choose any Mastercard™</string>
+    <string name="carousel_two_description">Whether it’s a credit, debit, or prepaid card, you can tokenize it into the wearable within seconds. Ready for payment 24/7.</string>
+    <string name="carousel_three_title">No battery –\nNo charging required</string>
+    <string name="carousel_three_description">Pay seamlessly and reliably without worrying about phone battery or carrying multiple cards.</string>
+    <string name="footer_note">Designed and developed in Singapore by Foundry R&amp;D SNG ©Mastercard, 2025.</string>
+    <string name="terms_and_condition">Terms and Conditions</string>
+    <string name="continue_button">Continue</string>
+    <string name="next_button">Next</string>
+    <string name="back_button">Back</string>
+    <string name="disagree_button">Disagree</string>
+    <string name="close_button">Close</string>
+</resources>
