@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -35,6 +36,7 @@ fun CoverScreen(
     function: () -> Unit
 ) {
 
+    val screenHeight = LocalConfiguration.current.screenHeightDp.dp
 
     Box(
         modifier = Modifier.fillMaxSize()
@@ -50,7 +52,7 @@ fun CoverScreen(
         modifier = Modifier.fillMaxSize().padding(all = 24.dp)
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
+            modifier = Modifier.fillMaxWidth().padding(vertical = screenHeight*0.03f)
         ) {
             Icon(
                 painter = painterResource(R.drawable.mastercard),
@@ -59,7 +61,7 @@ fun CoverScreen(
             )
             Text(
                 text = stringResource(R.string.header_text),
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp, vertical = 4.dp),
+                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
                 fontFamily = InterFontFamily,
                 fontWeight = FontWeight.Light,
                 fontSize = 20.sp,

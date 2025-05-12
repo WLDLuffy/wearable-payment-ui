@@ -15,9 +15,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -31,6 +33,7 @@ fun TopBar(
     navController: NavController,
     displayArrow: Boolean,
 ) {
+    val screenHeight = LocalConfiguration.current.screenHeightDp.dp
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -38,7 +41,7 @@ fun TopBar(
             .zIndex(1f)
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp, vertical = 16.dp),
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp).padding(top = screenHeight*0.05f, bottom = screenHeight*0.02f),
             verticalAlignment = Alignment.CenterVertically,
 
         ) {
@@ -50,8 +53,10 @@ fun TopBar(
             Text(
                 text = stringResource(R.string.header_text),
                 color = colorResource(id = R.color.white),
-                modifier = Modifier.padding(start = 16.dp).heightIn(max = 24.dp),
-                fontFamily = InterFontFamily
+                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                fontFamily = InterFontFamily,
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Light
             )
             Spacer(modifier = Modifier.weight(1f))
             if (displayArrow) {
