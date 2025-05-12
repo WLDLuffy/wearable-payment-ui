@@ -2,6 +2,7 @@ package com.example.mastercardwearablepaymentapp
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -50,79 +51,85 @@ fun IntroScreen(
             imageList = imageList,
             pagerState = pagerState
         )
-
-        Row (
-            modifier = Modifier.fillMaxWidth().align(Alignment.BottomEnd).padding(24.dp),
-        ) {
-
-            OutlinedButton(
-                onClick = {
-                    if (pagerState.currentPage == 0) {
-                        navController.navigate(Screen.CoverScreen.route)
-                    } else {
-                        coroutineScope.launch {
-                            val prevPage = pagerState.currentPage - 1
-                            if (prevPage > -1) {
-                                pagerState.animateScrollToPage(prevPage)
-                            }
-                        }
-                    }
-                },
-                modifier = Modifier.fillMaxWidth(0.35f).padding(8.dp),
-                colors = ButtonColors(
-                    containerColor = Color.Transparent,
-                    contentColor = Color(0xFFCF4500),
-                    disabledContentColor = Color.Blue,
-                    disabledContainerColor = Color.Blue,
-                ),
-                border = BorderStroke(
-                    color = Color(0xFFCF4500),
-                    width = 1.dp
-                )
-            ) {
-                Text(
-                    text = stringResource(R.string.back_button)
-                )
-            }
-
-            Button(
-                onClick = {
-                    if (pagerState.currentPage == imageList.size - 1) {
-                        navController.navigate(Screen.TermsAndConditionScreen.route)
-                    } else {
-                        coroutineScope.launch {
-                            val nextPage = pagerState.currentPage + 1
-                            if (nextPage < pagerState.pageCount) {
-                                pagerState.animateScrollToPage(nextPage)
-                            }
-                        }
-                    }
-                },
-                modifier = Modifier.fillMaxWidth().padding(8.dp),
-                colors = ButtonColors(
-                    containerColor = Color(0xFFCF4500),
-                    contentColor = Color.White,
-                    disabledContentColor = Color.Blue,
-                    disabledContainerColor = Color.Blue,
-                )
-            ) {
-                Text(
-                    text = stringResource(R.string.next_button)
-                )
-            }
-        }
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Bottom
+    ){
         Column (
             modifier = Modifier.fillMaxSize().padding(horizontal = 24.dp)
         ) {
-            Spacer(modifier = Modifier.weight(1f))
+            Spacer(
+                modifier = Modifier.weight(1f)
+            )
+            Row (
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                OutlinedButton(
+                    onClick = {
+                        if (pagerState.currentPage == 0) {
+                            navController.navigate(Screen.CoverScreen.route)
+                        } else {
+                            coroutineScope.launch {
+                                val prevPage = pagerState.currentPage - 1
+                                if (prevPage > -1) {
+                                    pagerState.animateScrollToPage(prevPage)
+                                }
+                            }
+                        }
+                    },
+                    modifier = Modifier.fillMaxWidth(0.35f).padding(vertical = 8.dp),
+                    colors = ButtonColors(
+                        containerColor = Color.Transparent,
+                        contentColor = Color(0xFFCF4500),
+                        disabledContentColor = Color.Blue,
+                        disabledContainerColor = Color.Blue,
+                    ),
+                    border = BorderStroke(
+                        color = Color(0xFFCF4500),
+                        width = 1.dp
+                    )
+                ) {
+                    Text(
+                        text = stringResource(R.string.back_button)
+                    )
+                }
+
+                Button(
+                    onClick = {
+                        if (pagerState.currentPage == imageList.size - 1) {
+                            navController.navigate(Screen.TermsAndConditionScreen.route)
+                        } else {
+                            coroutineScope.launch {
+                                val nextPage = pagerState.currentPage + 1
+                                if (nextPage < pagerState.pageCount) {
+                                    pagerState.animateScrollToPage(nextPage)
+                                }
+                            }
+                        }
+                    },
+                    modifier = Modifier.fillMaxWidth().padding(8.dp),
+                    colors = ButtonColors(
+                        containerColor = Color(0xFFCF4500),
+                        contentColor = Color.White,
+                        disabledContentColor = Color.Blue,
+                        disabledContainerColor = Color.Blue,
+                    )
+                ) {
+                    Text(
+                        text = stringResource(R.string.next_button),
+                    )
+                }
+            }
             Text(
                 text = stringResource(R.string.footer_note),
-                modifier = Modifier.fillMaxWidth().padding(4.dp),
+                modifier = Modifier.fillMaxWidth().padding(vertical = 16.dp),
                 fontSize = 8.sp,
                 fontFamily = InterFontFamily,
                 color = colorResource(R.color.light_grey)
             )
         }
+    }
+
     }
 }
 

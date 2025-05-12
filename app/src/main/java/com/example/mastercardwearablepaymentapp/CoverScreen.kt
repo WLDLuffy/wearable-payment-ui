@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -97,9 +96,9 @@ fun CoverScreen(
             fontSize = 12.sp
 
         )
-        Spacer(modifier = Modifier.weight(1f))
+
         Column (
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize().weight(1f),
             verticalArrangement = Arrangement.Bottom
         ) {
             OutlinedButton(
@@ -122,7 +121,7 @@ fun CoverScreen(
             }
             Text(
                 text = stringResource(R.string.footer_note),
-                modifier = Modifier.fillMaxWidth().padding(4.dp),
+                modifier = Modifier.fillMaxWidth().padding(8.dp),
                 fontSize = 8.sp,
                 fontFamily = InterFontFamily,
                 color = colorResource(R.color.light_grey)
