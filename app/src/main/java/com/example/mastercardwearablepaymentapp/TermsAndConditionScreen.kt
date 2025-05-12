@@ -80,7 +80,7 @@ fun TermsAndConditionScreen(
             HtmlTextView(R.string.terms_and_conditions)
         }
         Row(
-            modifier = Modifier.fillMaxWidth().padding(vertical = 16.dp)
+            modifier = Modifier.fillMaxWidth().padding(top=24.dp)
         ) {
             OutlinedButton(
                 onClick = {
