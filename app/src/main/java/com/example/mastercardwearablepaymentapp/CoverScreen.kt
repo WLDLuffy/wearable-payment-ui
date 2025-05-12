@@ -1,6 +1,7 @@
 package com.example.mastercardwearablepaymentapp
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -57,7 +58,7 @@ fun CoverScreen(
                 tint = Color.Unspecified,
             )
             Text(
-                text = "Foundry",
+                text = stringResource(R.string.header_text),
                 modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp, vertical = 4.dp),
                 fontFamily = InterFontFamily,
                 fontWeight = FontWeight.Light,
@@ -95,31 +96,36 @@ fun CoverScreen(
 
         )
         Spacer(modifier = Modifier.weight(1f))
-        OutlinedButton(
-            onClick = {
-                navController.navigate(Screen.IntroScreen.route)
-            },
-            modifier = Modifier.fillMaxWidth().align(Alignment.CenterHorizontally),
-            colors = ButtonColors(
-                containerColor = Color(0xFFCF4500),
-                contentColor = Color.White,
-                disabledContentColor = Color.Blue,
-                disabledContainerColor = Color.Blue,
-            )
+        Column (
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Bottom
         ) {
+            OutlinedButton(
+                onClick = {
+                    navController.navigate(Screen.IntroScreen.route)
+                },
+                modifier = Modifier.fillMaxWidth().align(Alignment.CenterHorizontally),
+                colors = ButtonColors(
+                    containerColor = Color(0xFFCF4500),
+                    contentColor = Color.White,
+                    disabledContentColor = Color.Blue,
+                    disabledContainerColor = Color.Blue,
+                )
+            ) {
+                Text(
+                    text = stringResource(R.string.continue_button),
+                    fontFamily = InterFontFamily,
+                    fontWeight = FontWeight.Bold,
+                )
+            }
             Text(
-                text = stringResource(R.string.continue_button),
+                text = stringResource(R.string.footer_note),
+                modifier = Modifier.fillMaxWidth().padding(4.dp),
+                fontSize = 8.sp,
                 fontFamily = InterFontFamily,
-                fontWeight = FontWeight.Bold,
+                color = colorResource(R.color.light_grey)
             )
         }
-        Text(
-            text = stringResource(R.string.footer_note),
-            modifier = Modifier.fillMaxWidth().padding(4.dp),
-            fontSize = 8.sp,
-            fontFamily = InterFontFamily,
-            color = colorResource(R.color.light_grey)
-        )
     }
 }
 

@@ -1,7 +1,10 @@
 package com.example.mastercardwearablepaymentapp
 
+import android.widget.TextView
+import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.content.MediaType.Companion.HtmlText
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -18,17 +21,23 @@ import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.content.res.TypedArrayUtils.getText
+import androidx.core.text.HtmlCompat
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.mastercardwearablepaymentapp.ui.theme.InterFontFamily
@@ -40,6 +49,7 @@ fun TermsAndConditionScreen(
 ) {
     val scrollState = rememberScrollState()
     val screenHeight = LocalConfiguration.current.screenHeightDp.dp
+
     TopBar(navController, displayArrow = false)
     Column (
         modifier = Modifier
@@ -50,7 +60,7 @@ fun TermsAndConditionScreen(
     ) {
         Spacer(modifier = Modifier.weight(0.1f))
         Text(
-            text = stringResource(R.string.terms_and_condition),
+            text = stringResource(R.string.terms_and_condition_header),
             fontFamily = InterFontFamily,
             fontWeight = FontWeight.Bold,
             fontSize = 24.sp,
@@ -67,13 +77,7 @@ fun TermsAndConditionScreen(
                 .verticalScroll(scrollState)
                 .padding(24.dp)
         ) {
-            Text(
-                text = termsAndConditionsDescription,
-                color = Color.White,
-                fontSize = 14.sp,
-                lineHeight = 20.sp
-            )
-
+            HtmlTextView(R.string.terms_and_conditions)
         }
         Row(
             modifier = Modifier.fillMaxWidth().padding(vertical = 16.dp)
@@ -129,6 +133,21 @@ fun TermsAndConditionScreen(
             color = colorResource(R.color.light_grey)
         )
     }
+}
+
+@Composable
+fun HtmlTextView(@StringRes textResId: Int) {
+    val context = LocalContext.current
+    val htmlText = stringResource(id = textResId)
+
+    AndroidView(
+        factory = {
+            TextView(context).apply {
+                text = HtmlCompat.fromHtml(htmlText, HtmlCompat.FROM_HTML_MODE_LEGACY)
+                setTextColor(Color.White.toArgb())
+            }
+        }
+    )
 }
 
 @Preview
