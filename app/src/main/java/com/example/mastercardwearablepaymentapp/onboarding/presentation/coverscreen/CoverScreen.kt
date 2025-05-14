@@ -1,4 +1,4 @@
-package com.example.mastercardwearablepaymentapp
+package com.example.mastercardwearablepaymentapp.onboarding.presentation.coverscreen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -27,6 +27,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.mastercardwearablepaymentapp.onboarding.presentation.components.OutlinedText
+import com.example.mastercardwearablepaymentapp.R
+import com.example.mastercardwearablepaymentapp.Screen
 import com.example.mastercardwearablepaymentapp.ui.theme.InterFontFamily
 
 @Composable

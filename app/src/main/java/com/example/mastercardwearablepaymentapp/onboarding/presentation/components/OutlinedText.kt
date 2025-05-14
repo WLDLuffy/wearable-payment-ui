@@ -1,4 +1,4 @@
-package com.example.mastercardwearablepaymentapp
+package com.example.mastercardwearablepaymentapp.onboarding.presentation.components
 
 import android.graphics.Typeface
 import androidx.compose.foundation.Canvas

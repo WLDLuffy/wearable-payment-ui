@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.dagger.hilt.android") version "2.56.2"
+    id("com.google.devtools.ksp") version "2.0.21-1.0.26"
 }
 
 android {
@@ -28,16 +30,21 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
     }
 }
+
+hilt {
+    enableAggregatingTask = false
+}
+
 
 dependencies {
     // page routing
@@ -52,6 +59,21 @@ dependencies {
     implementation("androidx.compose.material3:material3:1.3.2")
     implementation("androidx.compose.foundation:foundation:1.8.1")
     implementation("androidx.compose.ui:ui:1.4.0")
+
+    // Arrow
+    implementation("io.arrow-kt:arrow-core:1.2.0")
+    implementation("io.arrow-kt:arrow-fx-coroutines:1.2.0")
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    //Coil
+    implementation("io.coil-kt:coil-compose:2.5.0")
+    //dagger hilt
+    implementation("com.google.dagger:hilt-android:2.56.2")
+    ksp("com.google.dagger:hilt-compiler:2.56.2")
+    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
+    implementation("com.squareup:javapoet:1.13.0")
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

@@ -1,4 +1,4 @@
-package com.example.mastercardwearablepaymentapp
+package com.example.mastercardwearablepaymentapp.onboarding.presentation.introscreen
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -17,7 +17,6 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
@@ -27,6 +26,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.mastercardwearablepaymentapp.onboarding.presentation.components.Carousel
+import com.example.mastercardwearablepaymentapp.R
+import com.example.mastercardwearablepaymentapp.Screen
+import com.example.mastercardwearablepaymentapp.onboarding.presentation.components.TopBar
 import com.example.mastercardwearablepaymentapp.ui.theme.InterFontFamily
 import kotlinx.coroutines.launch
 
@@ -36,9 +39,18 @@ fun IntroScreen(
     function: () -> Unit
 ) {
     var imageList = listOf(
-        CarouselImage(R.drawable.carousel1, stringResource(R.string.carousel_one_title), stringResource(R.string.carousel_one_description)),
-        CarouselImage(R.drawable.carousel2, stringResource(R.string.carousel_two_title), stringResource(R.string.carousel_two_description)),
-        CarouselImage(R.drawable.carousel3, stringResource(R.string.carousel_three_title), stringResource(R.string.carousel_three_description)),
+        CarouselImage(
+            R.drawable.carousel1, stringResource(R.string.carousel_one_title), stringResource(
+                R.string.carousel_one_description
+            )),
+        CarouselImage(
+            R.drawable.carousel2, stringResource(R.string.carousel_two_title), stringResource(
+                R.string.carousel_two_description
+            )),
+        CarouselImage(
+            R.drawable.carousel3, stringResource(R.string.carousel_three_title), stringResource(
+                R.string.carousel_three_description
+            )),
     )
     val pagerState = rememberPagerState(initialPage = 0, pageCount = { imageList.size })
     val coroutineScope = rememberCoroutineScope()

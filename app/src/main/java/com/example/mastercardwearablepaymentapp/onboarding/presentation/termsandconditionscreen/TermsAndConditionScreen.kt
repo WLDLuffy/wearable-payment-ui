@@ -1,10 +1,9 @@
-package com.example.mastercardwearablepaymentapp
+package com.example.mastercardwearablepaymentapp.onboarding.presentation.termsandconditionscreen
 
 import android.widget.TextView
 import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.content.MediaType.Companion.HtmlText
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,7 +20,6 @@ import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -36,10 +34,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.core.content.res.TypedArrayUtils.getText
 import androidx.core.text.HtmlCompat
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.mastercardwearablepaymentapp.R
+import com.example.mastercardwearablepaymentapp.Screen
+import com.example.mastercardwearablepaymentapp.onboarding.presentation.components.TopBar
 import com.example.mastercardwearablepaymentapp.ui.theme.InterFontFamily
 
 @Composable
@@ -107,7 +107,8 @@ fun TermsAndConditionScreen(
 
             Button(
                 onClick = {
-                    navController.navigate(Screen.CoverScreen.route)
+//                    navController.navigate(Screen.CoverScreen.route)
+                    navController.navigate(Screen.ProductsScreen.route)
                 },
                 modifier = Modifier.fillMaxWidth().padding(8.dp),
                 colors = ButtonColors(

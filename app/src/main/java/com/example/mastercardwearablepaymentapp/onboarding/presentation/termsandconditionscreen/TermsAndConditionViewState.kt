@@ -1,0 +1,4 @@
+package com.example.mastercardwearablepaymentapp.onboarding.presentation.termsandconditionscreen
+
+class TermsAndConditionViewState {
+}

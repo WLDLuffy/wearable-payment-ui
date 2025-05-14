@@ -1,4 +1,4 @@
-package com.example.mastercardwearablepaymentapp
+package com.example.mastercardwearablepaymentapp.onboarding.presentation.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -33,6 +33,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.mastercardwearablepaymentapp.R
+import com.example.mastercardwearablepaymentapp.Screen
+import com.example.mastercardwearablepaymentapp.onboarding.presentation.introscreen.CarouselImage
 import com.example.mastercardwearablepaymentapp.ui.theme.InterFontFamily
 
 @Composable
@@ -120,9 +123,18 @@ fun CarouselPreview() {
     val pagerState = rememberPagerState(initialPage = 0, pageCount = { 3 })
     val navController = rememberNavController()
     var imageList = listOf(
-        CarouselImage(R.drawable.carousel1, stringResource(R.string.carousel_one_title), stringResource(R.string.carousel_one_description)),
-        CarouselImage(R.drawable.carousel2, stringResource(R.string.carousel_two_title), stringResource(R.string.carousel_two_description)),
-        CarouselImage(R.drawable.carousel3, stringResource(R.string.carousel_three_title), stringResource(R.string.carousel_three_description)),
+        CarouselImage(
+            R.drawable.carousel1, stringResource(R.string.carousel_one_title), stringResource(
+                R.string.carousel_one_description
+            )),
+        CarouselImage(
+            R.drawable.carousel2, stringResource(R.string.carousel_two_title), stringResource(
+                R.string.carousel_two_description
+            )),
+        CarouselImage(
+            R.drawable.carousel3, stringResource(R.string.carousel_three_title), stringResource(
+                R.string.carousel_three_description
+            )),
     )
     Carousel(navController, pagerState, imageList)
 }

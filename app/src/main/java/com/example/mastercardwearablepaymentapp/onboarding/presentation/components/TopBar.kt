@@ -1,11 +1,10 @@
-package com.example.mastercardwearablepaymentapp
+package com.example.mastercardwearablepaymentapp.onboarding.presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.material3.Button
@@ -26,6 +25,8 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.mastercardwearablepaymentapp.R
+import com.example.mastercardwearablepaymentapp.Screen
 import com.example.mastercardwearablepaymentapp.ui.theme.InterFontFamily
 
 @Composable
