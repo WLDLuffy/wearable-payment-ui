@@ -1,6 +1,5 @@
 package com.example.mastercardwearablepaymentapp.onboarding.presentation.introscreen
 
-import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.ViewModel
 import com.example.mastercardwearablepaymentapp.R
 import com.example.mastercardwearablepaymentapp.onboarding.domain.model.CarouselImage
