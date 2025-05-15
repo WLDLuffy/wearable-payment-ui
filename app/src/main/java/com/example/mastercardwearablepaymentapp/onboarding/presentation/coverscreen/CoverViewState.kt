@@ -1,4 +1,5 @@
 package com.example.mastercardwearablepaymentapp.onboarding.presentation.coverscreen
 
-class CoverViewState {
-}
+data class CoverViewState(
+    val isLoading: Boolean = false
+)
