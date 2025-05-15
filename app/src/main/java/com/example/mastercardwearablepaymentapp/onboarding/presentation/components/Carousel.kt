@@ -35,7 +35,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.mastercardwearablepaymentapp.R
 import com.example.mastercardwearablepaymentapp.Screen
-import com.example.mastercardwearablepaymentapp.onboarding.presentation.introscreen.CarouselImage
+import com.example.mastercardwearablepaymentapp.onboarding.domain.model.CarouselImage
 import com.example.mastercardwearablepaymentapp.ui.theme.InterFontFamily
 
 @Composable
@@ -54,7 +54,7 @@ fun Carousel(navController: NavController, pagerState: PagerState, imageList: Li
             ) {
                 pageIndex ->
                 Image(
-                    painter = painterResource(id = imageList[pageIndex].image),
+                    painter = painterResource(id = imageList[pageIndex].imageRes),
                     contentDescription = null,
                     contentScale = ContentScale.Crop,
                     modifier = Modifier.fillMaxSize()
@@ -82,7 +82,7 @@ fun Carousel(navController: NavController, pagerState: PagerState, imageList: Li
         Spacer(modifier = Modifier.height(24.dp))
 
         Text(
-            text = imageList[pagerState.currentPage].imageTitle,
+            text = stringResource(imageList[pagerState.currentPage].titleRes),
             fontFamily = InterFontFamily,
             fontWeight = FontWeight.Bold,
             color = Color.White,
@@ -90,7 +90,7 @@ fun Carousel(navController: NavController, pagerState: PagerState, imageList: Li
             fontSize = 24.sp
         )
         Text(
-            text = imageList[pagerState.currentPage].imageDescription,
+            text = stringResource(imageList[pagerState.currentPage].descriptionRes),
             fontFamily = InterFontFamily,
             fontWeight = FontWeight.Light,
             color = Color.White,
@@ -124,17 +124,20 @@ fun CarouselPreview() {
     val navController = rememberNavController()
     var imageList = listOf(
         CarouselImage(
-            R.drawable.carousel1, stringResource(R.string.carousel_one_title), stringResource(
-                R.string.carousel_one_description
-            )),
+            R.drawable.carousel1,
+            R.string.carousel_one_title,
+            R.string.carousel_one_description
+        ),
         CarouselImage(
-            R.drawable.carousel2, stringResource(R.string.carousel_two_title), stringResource(
-                R.string.carousel_two_description
-            )),
+            R.drawable.carousel2,
+            R.string.carousel_two_title,
+            R.string.carousel_two_description
+        ),
         CarouselImage(
-            R.drawable.carousel3, stringResource(R.string.carousel_three_title), stringResource(
-                R.string.carousel_three_description
-            )),
+            R.drawable.carousel3,
+            R.string.carousel_three_title,
+            R.string.carousel_three_description
+        ),
     )
     Carousel(navController, pagerState, imageList)
 }
