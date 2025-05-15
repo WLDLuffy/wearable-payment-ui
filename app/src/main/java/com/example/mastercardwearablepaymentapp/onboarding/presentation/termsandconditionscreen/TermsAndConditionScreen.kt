@@ -20,6 +20,7 @@ import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -35,6 +36,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.text.HtmlCompat
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.mastercardwearablepaymentapp.R
@@ -45,8 +48,10 @@ import com.example.mastercardwearablepaymentapp.ui.theme.InterFontFamily
 @Composable
 fun TermsAndConditionScreen(
     navController: NavController,
+    viewModel: TermsAndConditionViewModel = hiltViewModel(),
     function: () -> Unit,
 ) {
+    val state by viewModel.state.collectAsStateWithLifecycle()
     val scrollState = rememberScrollState()
     val screenHeight = LocalConfiguration.current.screenHeightDp.dp
 
@@ -77,7 +82,7 @@ fun TermsAndConditionScreen(
                 .verticalScroll(scrollState)
                 .padding(24.dp)
         ) {
-            HtmlTextView(R.string.terms_and_conditions)
+            HtmlTextView(state.termsAndConditionContentRes)
         }
         Row(
             modifier = Modifier.fillMaxWidth().padding(top=24.dp)

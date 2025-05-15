@@ -1,4 +1,6 @@
 package com.example.mastercardwearablepaymentapp.onboarding.presentation.termsandconditionscreen
 
-class TermsAndConditionViewState {
-}
+data class TermsAndConditionViewState(
+    val termsAndConditionContentRes: Int = 0,
+)
+
