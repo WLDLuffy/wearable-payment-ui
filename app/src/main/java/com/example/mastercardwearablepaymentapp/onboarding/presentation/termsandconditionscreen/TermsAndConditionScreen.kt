@@ -112,8 +112,7 @@ fun TermsAndConditionScreen(
 
             Button(
                 onClick = {
-//                    navController.navigate(Screen.CoverScreen.route)
-                    navController.navigate(Screen.ProductsScreen.route)
+                    navController.navigate(Screen.CoverScreen.route)
                 },
                 modifier = Modifier.fillMaxWidth().padding(8.dp),
                 colors = ButtonColors(
