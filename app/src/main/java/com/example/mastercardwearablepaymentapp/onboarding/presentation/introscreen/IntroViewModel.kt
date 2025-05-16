@@ -40,4 +40,5 @@ class IntroViewModel @Inject constructor (
             it.copy(currentPage = index)
         }
     }
+
 }
