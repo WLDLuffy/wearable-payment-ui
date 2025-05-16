@@ -1,4 +1,4 @@
-package com.example.mastercardwearablepaymentapp.onboarding.presentation.testscreen
+package com.example.mastercardwearablepaymentapp.onboarding.presentation.gridscreen
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -8,10 +8,10 @@ import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
 @HiltViewModel
-class TestScreenViewModel @Inject constructor (
+class GridScreenViewModel @Inject constructor (
 
 ): ViewModel() {
-    private val _state = MutableStateFlow(TestScreenViewState())
+    private val _state = MutableStateFlow(GridScreenViewState())
     val state = _state.asStateFlow()
 
 

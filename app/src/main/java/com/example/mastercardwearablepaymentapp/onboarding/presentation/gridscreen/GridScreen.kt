@@ -1,4 +1,4 @@
-package com.example.mastercardwearablepaymentapp.onboarding.presentation.testscreen
+package com.example.mastercardwearablepaymentapp.onboarding.presentation.gridscreen
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -30,9 +30,9 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun TestScreen(
+fun GridScreen(
     navController: NavController,
-    viewModel: TestScreenViewModel = hiltViewModel(),
+    viewModel: GridScreenViewModel = hiltViewModel(),
 ) {
     val state = viewModel.state.collectAsStateWithLifecycle()
 
@@ -190,8 +190,8 @@ fun TestScreen(
 
 @Preview
 @Composable
-fun TestScreenPreview(
+fun GridScreenPreview(
 ) {
     val navController = rememberNavController()
-    TestScreen(navController)
+    GridScreen(navController)
 }

@@ -19,10 +19,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.mastercardwearablepaymentapp.onboarding.presentation.coverscreen.CoverScreen
+import com.example.mastercardwearablepaymentapp.onboarding.presentation.gridscreen.GridScreen
 import com.example.mastercardwearablepaymentapp.onboarding.presentation.introscreen.IntroScreen
 import com.example.mastercardwearablepaymentapp.onboarding.presentation.productscreen.ProductsScreen
 import com.example.mastercardwearablepaymentapp.onboarding.presentation.termsandconditionscreen.TermsAndConditionScreen
-import com.example.mastercardwearablepaymentapp.onboarding.presentation.testscreen.TestScreen
 import com.example.mastercardwearablepaymentapp.ui.theme.MastercardWearablePaymentAppTheme
 import com.example.mastercardwearablepaymentapp.util.Event
 import com.example.mastercardwearablepaymentapp.util.EventBus
@@ -67,7 +67,7 @@ class MainActivity : ComponentActivity() {
 fun App(modifier: Modifier, navController: NavHostController) {
     // Page Router
     NavHost(
-        navController = navController, startDestination = Screen.TestScreen.route
+        navController = navController, startDestination = Screen.GridScreen.route
     ) {
         composable(Screen.CoverScreen.route) {
             CoverScreen (navController) {
@@ -88,8 +88,8 @@ fun App(modifier: Modifier, navController: NavHostController) {
              ProductsScreen(navController)
          }
 
-        composable(Screen.TestScreen.route) {
-            TestScreen(navController)
+        composable(Screen.GridScreen.route) {
+            GridScreen(navController)
         }
     }
 }
