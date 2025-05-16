@@ -22,6 +22,7 @@ import com.example.mastercardwearablepaymentapp.onboarding.presentation.coverscr
 import com.example.mastercardwearablepaymentapp.onboarding.presentation.introscreen.IntroScreen
 import com.example.mastercardwearablepaymentapp.onboarding.presentation.productscreen.ProductsScreen
 import com.example.mastercardwearablepaymentapp.onboarding.presentation.termsandconditionscreen.TermsAndConditionScreen
+import com.example.mastercardwearablepaymentapp.onboarding.presentation.testscreen.TestScreen
 import com.example.mastercardwearablepaymentapp.ui.theme.MastercardWearablePaymentAppTheme
 import com.example.mastercardwearablepaymentapp.util.Event
 import com.example.mastercardwearablepaymentapp.util.EventBus
@@ -66,7 +67,7 @@ class MainActivity : ComponentActivity() {
 fun App(modifier: Modifier, navController: NavHostController) {
     // Page Router
     NavHost(
-        navController = navController, startDestination = Screen.CoverScreen.route
+        navController = navController, startDestination = Screen.TestScreen.route
     ) {
         composable(Screen.CoverScreen.route) {
             CoverScreen (navController) {
@@ -86,5 +87,9 @@ fun App(modifier: Modifier, navController: NavHostController) {
          composable(Screen.ProductsScreen.route) {
              ProductsScreen(navController)
          }
+
+        composable(Screen.TestScreen.route) {
+            TestScreen(navController)
+        }
     }
 }
